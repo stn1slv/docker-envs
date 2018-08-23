@@ -1,0 +1,30 @@
+version: '3.1'
+
+networks:
+  front-tier:
+  back-tier:
+
+services:
+  grafana:
+    image: grafana/grafana        
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    depends_on:
+      - prometheus
+    ports:
+      - 3000:3000
+    volumes:
+      - ./grafana/provisioning/:/etc/grafana/provisioning/
+    networks:
+      - back-tier
+      - front-tier
+    restart: always
+  prometheus:
+      image: prom/prometheus
+      volumes:
+      - ./prometheusConfig.yml:/etc/prometheus/prometheus.yml
+      ports:
+      - "9090:9090"
+      networks:
+      - back-tier
+      restart: always
