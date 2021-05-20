@@ -1,10 +1,14 @@
 version: '3'
 
+volumes:
+  postgres_data:
+    driver: local
+
 services:
   postgres:
     image: 'postgres:alpine'
     volumes:
-      - ./postgres:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
     restart: 'always'
     ports:
       - 5432:5432
