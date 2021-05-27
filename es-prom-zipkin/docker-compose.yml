@@ -17,8 +17,8 @@ services:
         image: prom/prometheus:v2.27.1
         container_name: prometheus
         restart: always
-        # volumes:
-        #     - ./prometheusConfig.yml:/etc/prometheus/prometheus.yml
+        volumes:
+            - ./prometheusConfig.yml:/etc/prometheus/prometheus.yml
         ports:
             - 9090:9090
     zipkin:
