@@ -10,8 +10,8 @@ services:
             - prometheus
         ports:
             - 3000:3000
-        # volumes:
-        #     - ./grafana/provisioning/:/etc/grafana/provisioning/
+        volumes:
+            - ./grafana/provisioning/:/etc/grafana/provisioning/
         restart: always
     prometheus:
         image: prom/prometheus:v2.27.1
