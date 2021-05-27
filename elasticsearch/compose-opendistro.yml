@@ -1,0 +1,26 @@
+version: '3.5'
+
+services:
+
+    elasticsearch:
+        image: amazon/opendistro-for-elasticsearch:1.13.2
+        container_name: elasticsearch
+        environment:
+            - node.name=es01
+            - cluster.name=docker-cluster
+            - discovery.type=single-node
+            - bootstrap.memory_lock=true
+            - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+            - opendistro_security.disabled=true #OpenDistro: disable security for PoC purposes
+            - DISABLE_INSTALL_DEMO_CONFIG=true  #OpenDistro: https://opendistro.github.io/for-elasticsearch-docs/docs/security/configuration
+        ulimits:
+            memlock:
+                soft: -1
+                hard: -1
+            nofile:
+                soft: 65536 # maximum number of open files for the Elasticsearch user, set to at least 65536 on modern systems
+                hard: 65536
+        ports:
+            - 9200:9200
+            - 9300:9300
+            - 9600:9600                       #OpenDistro: performance profiler port

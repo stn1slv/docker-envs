@@ -1,0 +1,61 @@
+version: '3.5'
+
+volumes:
+  postgres_data:
+    driver: local
+
+services:
+  postgres:
+    image: 'postgres:alpine'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: 'always'
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: keycloak
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: keycloak
+      POSTGRES_HOST: postgres
+
+  traefik:
+    image: library/traefik:1.7
+    container_name: traefik
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: >
+      --logLevel=INFO
+      --api.dashboard
+      --docker
+      --entrypoints="Name:http Address::80"
+      --defaultentrypoints="http"
+    ports:
+      - 8080:80
+      - 3000:8080
+
+  keycloak:
+    image: jboss/keycloak:12.0.4
+    environment:
+      DB_VENDOR: postgres
+      DB_ADDR: postgres
+      DB_PORT: 5432
+      DB_DATABASE: keycloak
+      DB_USER: keycloak
+      DB_PASSWORD: password
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: admin
+      KEYCLOAK_LOGLEVEL: INFO
+      JGROUPS_DISCOVERY_PROTOCOL: JDBC_PING
+      JGROUPS_DISCOVERY_PROPERTIES: datasource_jndi_name=java:jboss/datasources/KeycloakDS,info_writer_sleep_time=500,initialize_sql="CREATE TABLE IF NOT EXISTS JGROUPSPING ( own_addr varchar(200) NOT NULL, cluster_name varchar(200) NOT NULL, created timestamp default current_timestamp, ping_data BYTEA, constraint PK_JGROUPSPING PRIMARY KEY (own_addr, cluster_name))"
+      CACHE_OWNERS_AUTH_SESSIONS_COUNT: 2
+      CACHE_OWNERS_COUNT: 2
+    command: "-Dkeycloak.profile.feature.upload_scripts=enabled"
+    depends_on:
+      - postgres
+    labels:
+      traefik.enable: true
+      traefik.port: 8080
+      traefik.protocol: http
+      traefik.frontend.rule: Host:localhost
+      traefik.frontend.passHostHeader: true
+      # traefik.backend.loadbalancer.stickiness: true

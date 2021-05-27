@@ -1,0 +1,12 @@
+version: '3.5'
+
+services:
+
+    kibana:
+        build: kibana/opendistro
+        container_name: kibana
+        environment:
+            - ELASTICSEARCH_URL=http://elasticsearch:9200
+            - ELASTICSEARCH_HOSTS=["http://elasticsearch:9200"]
+        ports:
+            - 5601:5601
