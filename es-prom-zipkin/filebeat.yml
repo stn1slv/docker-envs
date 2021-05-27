@@ -14,7 +14,7 @@ processors:
 - add_docker_metadata:
     host: "unix:///var/run/docker.sock"
 - dissect:
-    tokenizer: "%{time} %{module} %{severity} [%{traceid},%{spanId}] %{class} - %{message}"
+    tokenizer: "%{time} %{severity} [%{traceid},%{spanId}] %{class} - %{message}"
     field: "message"
     target_prefix: "msg"
 output.elasticsearch:
