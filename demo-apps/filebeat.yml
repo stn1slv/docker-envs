@@ -1,10 +1,3 @@
-# filebeat.inputs:
-#     - type: log
-#       paths:
-#         - /tmp/*.log
-#       multiline.pattern: '^[[:space:]]'
-#       multiline.negate: false
-#       multiline.match: after
 filebeat.inputs:
 - type: container
   paths: 
