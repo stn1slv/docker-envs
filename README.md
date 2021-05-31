@@ -16,6 +16,7 @@ keycloak       | keycloak/compose.yml                 | Single instance
 keycloak       | keycloak/compose-cluster.yml         | Standalone cluster
 postgresql     | postgresql/compose.yml               | 
 redis          | redis/compose.yml                    | 
+mongo          | mongo/compose.yml                    | 
 openldap       | openldap/compose.yml                 | 
 sftp-server    | sftp-server/compose.yml              | 
 kafka          | kafka/compose.yml                    | Kafka distribution with Apache Kafka, Kafka Connect, Zookeeper, Confluent Schema Registry and REST Proxy (includoing kafka-topics-ui, schema-registry-ui, kafka-connect-ui)
