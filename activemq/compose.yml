@@ -1,0 +1,10 @@
+version: '3.5'
+
+services:
+
+    activemq:
+        image: rmohr/activemq:5.15.9-alpine
+        container_name: activemq
+        ports:
+            - 61616:61616
+            - 8161:8161

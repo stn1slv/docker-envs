@@ -23,5 +23,7 @@ kafka          | kafka/compose.yml                    | Kafka distribution with 
 kafka          | kafka/compose-cp.yml                 | Confluent distribution
 schema-registry | schema-registry/compose.yml         | Confluent Schema Registry
 rabbitmq       | rabbitmq/compose.yml                 |
-wso2am         | wso2am/compose.yml                   | WSO2 API Manager   
+wso2am         | wso2am/compose.yml                   | WSO2 API Manager
+activemq       | activemq/compose.yml                 | Apache ActiveMQ "Classic"
+activemq-artemis | activemq-artemis/compose.yml       | Apache ActiveMQ Artemis
 swagger-ui     | swagger-ui/compose.yml               |
