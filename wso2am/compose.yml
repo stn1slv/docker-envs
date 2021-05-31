@@ -1,0 +1,11 @@
+version: '3.5'
+
+services:
+
+    wso2am:
+        image: wso2/wso2am:4.0.0-alpine
+        container_name: wso2am
+        ports:
+            - 8280:8280
+            - 8243:8243
+            - 9443:9443
