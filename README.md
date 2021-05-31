@@ -21,6 +21,7 @@ openldap       | openldap/compose.yml                 |
 sftp-server    | sftp-server/compose.yml              | 
 kafka          | kafka/compose.yml                    | Kafka distribution with Kafka Connect UI, Kafka Topics UI, Confluent Schema Registry and REST Proxy
 kafka          | kafka/compose-cp.yml                 | Confluent distribution
+schema-registry | schema-registry/compose.yml         | Confluent Schema Registry
 rabbitmq       | rabbitmq/compose.yml                 |
 wso2am         | wso2am/compose.yml                   | WSO2 API Manager   
 swagger-ui     | swagger-ui/compose.yml               |
