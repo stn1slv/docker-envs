@@ -1,0 +1,40 @@
+version: '3.5'
+
+services:
+
+    schema-registry-1:
+        image: confluentinc/cp-schema-registry:6.1.1
+        container_name: schema-registry-1
+        restart: always
+        environment:
+        -  SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS=kafka:9092
+        -  SCHEMA_REGISTRY_HOST_NAME=schema-registry-1
+        -  SCHEMA_REGISTRY_LISTENERS=http://0.0.0.0:8081
+        -  SCHEMA_REGISTRY_MASTER_ELIGIBILITY=true
+        -  SCHEMA_REGISTRY_KAFKASTORE_TOPIC=my-schemas
+        ports:
+        - 8081:8081
+    schema-registry-2:
+        image: confluentinc/cp-schema-registry:6.1.1
+        container_name: schema-registry-2
+        restart: always
+        environment:
+        -  SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS=kafka:9092
+        -  SCHEMA_REGISTRY_HOST_NAME=schema-registry-2
+        -  SCHEMA_REGISTRY_LISTENERS=http://0.0.0.0:8081
+        -  SCHEMA_REGISTRY_MASTER_ELIGIBILITY=true
+        -  SCHEMA_REGISTRY_KAFKASTORE_TOPIC=my-schemas
+        ports:
+        - 8082:8081
+    schema-registry-3:
+        image: confluentinc/cp-schema-registry:6.1.1
+        container_name: schema-registry-3
+        restart: always
+        environment:
+        -  SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS=kafka:9092
+        -  SCHEMA_REGISTRY_HOST_NAME=schema-registry-3
+        -  SCHEMA_REGISTRY_LISTENERS=http://0.0.0.0:8081
+        -  SCHEMA_REGISTRY_MASTER_ELIGIBILITY=true
+        -  SCHEMA_REGISTRY_KAFKASTORE_TOPIC=my-schemas
+        ports:
+        - 8083:8081
