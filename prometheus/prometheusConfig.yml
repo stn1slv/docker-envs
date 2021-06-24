@@ -10,12 +10,12 @@ scrape_configs:
   - job_name: 'BookingCarService'
     metrics_path: '/actuator/prometheus'
     static_configs:
-      - targets: ['tripbooking:8080']  
+      - targets: ['carbooking:8080']  
   - job_name: 'BookingHotelService'
     metrics_path: '/actuator/prometheus'
     static_configs:
-      - targets: ['tripbooking:8080']  
+      - targets: ['hotelbooking:8080']  
   - job_name: 'BookingFlightService'
     metrics_path: '/actuator/prometheus'
     static_configs:
-      - targets: ['tripbooking:8080']  
+      - targets: ['flightbooking:8080']  
