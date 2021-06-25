@@ -3,14 +3,19 @@ version: '3.5'
 services:
 
     grafana:
-        image: grafana/grafana:7.5.7   
+        image: grafana/grafana:7.5.9   
         container_name: grafana
         environment:
             - GF_SECURITY_ADMIN_PASSWORD=admin
+            
             # Install plugins
-            - GF_INSTALL_PLUGINS=vonage-status-panel,jdbranham-diagram-panel,agenty-flowcharting-panel,yesoreyeram-boomtable-panel
+            #- GF_INSTALL_PLUGINS=vonage-status-panel,jdbranham-diagram-panel,agenty-flowcharting-panel,yesoreyeram-boomtable-panel
+            
+            # Log level
+            #- GF_LOG_LEVEL=debug
         ports:
             - 3000:3000
         volumes:
-            - ./grafana/provisioning/:/etc/grafana/provisioning/
+            - ./grafana/provisioning/dashboards/:/etc/grafana/provisioning/dashboards/
+            - ./grafana/provisioning/datasources/:/etc/grafana/provisioning/datasources/
         restart: always
