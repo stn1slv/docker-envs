@@ -30,8 +30,7 @@
   "editable": true,
   "gnetId": 4701,
   "graphTooltip": 1,
-  "id": 1,
-  "iteration": 1624605388479,
+  "iteration": 1624630840459,
   "links": [],
   "panels": [
     {
@@ -727,7 +726,7 @@
           "expr": "rate(CamelMessageHistory_seconds_sum{application=\"$application\", instance=\"$instance\"}[1m])/rate(CamelMessageHistory_seconds_count{application=\"$application\", instance=\"$instance\"}[1m])",
           "hide": false,
           "interval": "",
-          "legendFormat": "{{routeId}}",
+          "legendFormat": "{{nodeId}} [{{routeId}}]",
           "refId": "A"
         }
       ],
@@ -849,6 +848,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:204",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -857,6 +857,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:205",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -2861,7 +2862,7 @@
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
-      "repeatIteration": 1624605388479,
+      "repeatIteration": 1624630840459,
       "repeatPanelId": 3,
       "scopedVars": {
         "jvm_memory_pool_heap": {
@@ -3011,7 +3012,7 @@
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
-      "repeatIteration": 1624605388479,
+      "repeatIteration": 1624630840459,
       "repeatPanelId": 3,
       "scopedVars": {
         "jvm_memory_pool_heap": {
@@ -3325,7 +3326,7 @@
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
-      "repeatIteration": 1624605388479,
+      "repeatIteration": 1624630840459,
       "repeatPanelId": 78,
       "scopedVars": {
         "jvm_memory_pool_nonheap": {
@@ -3475,7 +3476,7 @@
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
-      "repeatIteration": 1624605388479,
+      "repeatIteration": 1624630840459,
       "repeatPanelId": 78,
       "scopedVars": {
         "jvm_memory_pool_nonheap": {
@@ -3625,7 +3626,7 @@
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
-      "repeatIteration": 1624605388479,
+      "repeatIteration": 1624630840459,
       "repeatPanelId": 78,
       "scopedVars": {
         "jvm_memory_pool_nonheap": {
@@ -3775,7 +3776,7 @@
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
-      "repeatIteration": 1624605388479,
+      "repeatIteration": 1624630840459,
       "repeatPanelId": 78,
       "scopedVars": {
         "jvm_memory_pool_nonheap": {
@@ -5102,5 +5103,5 @@
   "timezone": "browser",
   "title": "Apache Camel & Spring Boot",
   "uid": "_Y_c3kknk",
-  "version": 1
+  "version": 2
 }
