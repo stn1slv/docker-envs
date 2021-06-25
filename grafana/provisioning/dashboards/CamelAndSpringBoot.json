@@ -30,8 +30,8 @@
   "editable": true,
   "gnetId": 4701,
   "graphTooltip": 1,
-  "id": 2,
-  "iteration": 1624546200655,
+  "id": 1,
+  "iteration": 1624605388479,
   "links": [],
   "panels": [
     {
@@ -475,7 +475,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "7.5.9",
       "targets": [
         {
           "exemplar": true,
@@ -534,7 +534,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "7.5.9",
       "targets": [
         {
           "exemplar": true,
@@ -596,7 +596,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "7.5.9",
       "targets": [
         {
           "exemplar": true,
@@ -658,7 +658,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "7.5.9",
       "targets": [
         {
           "exemplar": true,
@@ -695,10 +695,13 @@
       "hiddenSeries": false,
       "id": 155,
       "legend": {
+        "alignAsTable": true,
         "avg": false,
         "current": false,
+        "hideEmpty": false,
         "max": false,
         "min": false,
+        "rightSide": true,
         "show": true,
         "total": false,
         "values": false
@@ -710,7 +713,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "7.5.9",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -724,7 +727,7 @@
           "expr": "rate(CamelMessageHistory_seconds_sum{application=\"$application\", instance=\"$instance\"}[1m])/rate(CamelMessageHistory_seconds_count{application=\"$application\", instance=\"$instance\"}[1m])",
           "hide": false,
           "interval": "",
-          "legendFormat": "",
+          "legendFormat": "{{routeId}}",
           "refId": "A"
         }
       ],
@@ -790,10 +793,12 @@
       "hiddenSeries": false,
       "id": 156,
       "legend": {
+        "alignAsTable": true,
         "avg": false,
         "current": false,
         "max": false,
         "min": false,
+        "rightSide": true,
         "show": true,
         "total": false,
         "values": false
@@ -805,7 +810,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "7.5.9",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -818,8 +823,9 @@
           "exemplar": true,
           "expr": "rate(CamelRoutePolicy_seconds_sum{application=\"$application\", instance=\"$instance\"}[1m])/rate(CamelRoutePolicy_seconds_count{application=\"$application\", instance=\"$instance\"}[1m])",
           "hide": false,
+          "instant": false,
           "interval": "",
-          "legendFormat": "",
+          "legendFormat": "{{routeId}}",
           "refId": "A"
         }
       ],
@@ -916,7 +922,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "7.5.9",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1017,7 +1023,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "7.5.9",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1113,7 +1119,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "7.5.9",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1219,7 +1225,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "7.5.9",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1380,7 +1386,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "7.5.9",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1510,7 +1516,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "7.5.9",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1642,7 +1648,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "7.5.9",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1772,7 +1778,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "7.5.9",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1923,7 +1929,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "7.5.9",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -2055,7 +2061,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "7.5.9",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -2177,7 +2183,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "7.5.9",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -2317,7 +2323,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "7.5.9",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -2433,7 +2439,7 @@
         "alertThreshold": true
       },
       "percentage": true,
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "7.5.9",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -2558,7 +2564,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "7.5.9",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -2702,7 +2708,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "7.5.9",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -2851,11 +2857,11 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "7.5.9",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
-      "repeatIteration": 1624546200655,
+      "repeatIteration": 1624605388479,
       "repeatPanelId": 3,
       "scopedVars": {
         "jvm_memory_pool_heap": {
@@ -3001,11 +3007,11 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "7.5.9",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
-      "repeatIteration": 1624546200655,
+      "repeatIteration": 1624605388479,
       "repeatPanelId": 3,
       "scopedVars": {
         "jvm_memory_pool_heap": {
@@ -3166,7 +3172,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "7.5.9",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -3315,11 +3321,11 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "7.5.9",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
-      "repeatIteration": 1624546200655,
+      "repeatIteration": 1624605388479,
       "repeatPanelId": 78,
       "scopedVars": {
         "jvm_memory_pool_nonheap": {
@@ -3465,11 +3471,11 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "7.5.9",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
-      "repeatIteration": 1624546200655,
+      "repeatIteration": 1624605388479,
       "repeatPanelId": 78,
       "scopedVars": {
         "jvm_memory_pool_nonheap": {
@@ -3615,11 +3621,11 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "7.5.9",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
-      "repeatIteration": 1624546200655,
+      "repeatIteration": 1624605388479,
       "repeatPanelId": 78,
       "scopedVars": {
         "jvm_memory_pool_nonheap": {
@@ -3765,11 +3771,11 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "7.5.9",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
-      "repeatIteration": 1624546200655,
+      "repeatIteration": 1624605388479,
       "repeatPanelId": 78,
       "scopedVars": {
         "jvm_memory_pool_nonheap": {
@@ -3917,7 +3923,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "7.5.9",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -4013,7 +4019,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "7.5.9",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -4119,7 +4125,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "7.5.9",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -4248,7 +4254,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "7.5.9",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -4362,7 +4368,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "7.5.9",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -4494,7 +4500,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "7.5.9",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -4617,7 +4623,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "7.5.9",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -4732,7 +4738,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "7.5.9",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -4855,7 +4861,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "7.5.9",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -4967,8 +4973,8 @@
         "allValue": null,
         "current": {
           "selected": false,
-          "text": "hotelbooking:8080",
-          "value": "hotelbooking:8080"
+          "text": "tripbooking:8080",
+          "value": "tripbooking:8080"
         },
         "datasource": "Prometheus",
         "definition": "",
@@ -5096,5 +5102,5 @@
   "timezone": "browser",
   "title": "Apache Camel & Spring Boot",
   "uid": "_Y_c3kknk",
-  "version": 5
+  "version": 1
 }
