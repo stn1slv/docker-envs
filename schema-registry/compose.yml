@@ -11,6 +11,7 @@ services:
             - SCHEMA_REGISTRY_LISTENERS=http://0.0.0.0:8081
             # - SCHEMA_REGISTRY_KAFKASTORE_TOPIC=my-schemas
             # - SCHEMA_REGISTRY_KAFKASTORE_GROUP_ID=test-group
+            # - SCHEMA_REGISTRY_SCHEMA_REGISTRY_GROUP_ID=test-group
             # - SCHEMA_REGISTRY_KAFKASTORE_SECURITY_PROTOCOL=SASL_PLAINTEXT \
             # - SCHEMA_REGISTRY_KAFKASTORE_SASL_MECHANISM=SCRAM-SHA-256 \
             # - SCHEMA_REGISTRY_KAFKASTORE_SASL_JAAS_CONFIG='org.apache.kafka.common.security.scram.ScramLoginModule required username="user" password="pass";'
