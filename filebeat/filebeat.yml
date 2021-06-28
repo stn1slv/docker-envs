@@ -2,7 +2,14 @@ filebeat.inputs:
 - type: container
   paths: 
     - '/var/lib/docker/containers/*/*.log'
+
+  multiline.type: pattern
+  multiline.pattern: '^[[:space:]]'
+  multiline.negate: false
+  multiline.match: after
+
 logging.level: warning
+
 processors:
 - add_docker_metadata:
     host: "unix:///var/run/docker.sock"
@@ -10,5 +17,6 @@ processors:
     tokenizer: "%{time} %{severity} [%{traceid},%{spanId}] %{class} - %{message}"
     field: "message"
     target_prefix: "msg"
+    
 output.elasticsearch:
   hosts: ["http://elasticsearch:9200"]
