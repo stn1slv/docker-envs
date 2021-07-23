@@ -22,6 +22,7 @@ sftp-server    | sftp-server/compose.yml              | sFTP server
 kafka          | kafka/compose.yml                    | Kafka distribution with Kafka Connect UI, Kafka Topics UI, Confluent Schema Registry and REST Proxy
 kafka          | kafka/compose-cp.yml                 | Confluent Platform OSS distribution (Kafka & Zookeeper)
 schema-registry | schema-registry/compose.yml         | Confluent Schema Registry
+kafka-rest-proxy | kafka-rest-proxy/compose-cp.yml    | Confluent REST proxy
 rabbitmq       | rabbitmq/compose.yml                 | RabbitMQ
 wso2am         | wso2am/compose.yml                   | WSO2 API Manager
 activemq       | activemq/compose.yml                 | Apache ActiveMQ Classic
