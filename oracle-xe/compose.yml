@@ -1,0 +1,12 @@
+version: '3.5'
+
+services:
+
+    oracle-xe:
+        image: gvenzl/oracle-xe:21
+        container_name: oracle-xe
+        environment: 
+            - ORACLE_PASSWORD=welcome1
+            - ORACLE_DATABASE=orcl
+        ports:
+            - 1521:1521
