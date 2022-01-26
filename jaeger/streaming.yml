@@ -1,0 +1,41 @@
+version: '3.5'
+
+services:
+    jaeger-collector:
+      image: jaegertracing/jaeger-collector:1.30
+      # container_name: jaeger-collector
+      container_name: zipkin
+      restart: on-failure
+      command: 
+        - "--collector.zipkin.host-port=9411"
+        - "--kafka.producer.topic=jaeger"
+        - "--kafka.producer.brokers=kafka:9092"
+      environment: 
+        - SPAN_STORAGE_TYPE=kafka
+      ports:
+        - "14269:14269"
+        - "14268:14268"
+        - "14250"
+        - "9411:9411"
+    jaeger-ingester:
+      image: jaegertracing/jaeger-ingester:1.30
+      container_name: jaeger-ingester
+      restart: on-failure
+      command:
+        - "--es.server-urls=http://elasticsearch:9200"
+      environment:
+        - SPAN_STORAGE_TYPE=elasticsearch
+        - KAFKA_CONSUMER_BROKERS=kafka:9092
+        - KAFKA_CONSUMER_TOPIC=jaeger
+    
+    jaeger-query:
+      image: jaegertracing/jaeger-query:1.30
+      container_name: jaeger-query
+      restart: on-failure
+      command:
+        - "--es.server-urls=http://elasticsearch:9200"
+      environment:
+        - SPAN_STORAGE_TYPE=elasticsearch
+      ports:
+        - "16686:16686"
+        - "16687"
