@@ -17,16 +17,17 @@ services:
         - "14268:14268"
         - "14250"
         - "9411:9411"
+        
     jaeger-ingester:
       image: jaegertracing/jaeger-ingester:1.30
       container_name: jaeger-ingester
       restart: on-failure
       command:
         - "--es.server-urls=http://elasticsearch:9200"
+        - "--kafka.consumer.brokers=kafka:9092"
+        - "--kafka.consumer.topic=jaeger"
       environment:
         - SPAN_STORAGE_TYPE=elasticsearch
-        - KAFKA_CONSUMER_BROKERS=kafka:9092
-        - KAFKA_CONSUMER_TOPIC=jaeger
     
     jaeger-query:
       image: jaegertracing/jaeger-query:1.30
