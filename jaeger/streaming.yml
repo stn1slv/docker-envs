@@ -13,10 +13,8 @@ services:
       environment: 
         - SPAN_STORAGE_TYPE=kafka
       ports:
-        - "14269:14269"
-        - "14268:14268"
-        - "14250"
-        - "9411:9411"
+        - "14269:14269" #Port for metrics in Prometheus format. Please use /metrics endpoint
+        - "9411:9411"   #Port for receiving traces in Zipkin format
         
     jaeger-ingester:
       image: jaegertracing/jaeger-ingester:1.30
@@ -28,6 +26,8 @@ services:
         - "--kafka.consumer.topic=jaeger"
       environment:
         - SPAN_STORAGE_TYPE=elasticsearch
+      ports:
+        - "14270:14270"   #Port for metrics in Prometheus format. Please use /metrics endpoint
     
     jaeger-query:
       image: jaegertracing/jaeger-query:1.30
@@ -38,5 +38,5 @@ services:
       environment:
         - SPAN_STORAGE_TYPE=elasticsearch
       ports:
-        - "16686:16686"
-        - "16687"
+        - "16686:16686"   #Port for UI
+        - "16687:16687"   #Port for metrics in Prometheus format. Please use /metrics endpoint
