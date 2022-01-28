@@ -10,6 +10,7 @@ services:
         - "--collector.zipkin.host-port=9411"
         - "--kafka.producer.topic=jaeger"
         - "--kafka.producer.brokers=kafka:9092"
+        - "--kafka.producer.encoding=json"
       environment: 
         - SPAN_STORAGE_TYPE=kafka
       ports:
@@ -24,6 +25,7 @@ services:
         - "--es.server-urls=http://elasticsearch:9200"
         - "--kafka.consumer.brokers=kafka:9092"
         - "--kafka.consumer.topic=jaeger"
+        - "--kafka.consumer.encoding=json"
       environment:
         - SPAN_STORAGE_TYPE=elasticsearch
       ports:
