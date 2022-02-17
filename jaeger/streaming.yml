@@ -13,6 +13,7 @@ services:
       environment: 
         - SPAN_STORAGE_TYPE=kafka
       ports:
+        - "14250:14250"
         - "14269:14269" #Port for metrics in Prometheus format. Please use /metrics endpoint
         - "9411:9411"   #Port for receiving traces in Zipkin format
         
