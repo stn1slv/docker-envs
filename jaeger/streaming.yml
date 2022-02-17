@@ -3,8 +3,7 @@ version: '3.5'
 services:
     jaeger-collector:
       image: jaegertracing/jaeger-collector:1.30
-      # container_name: jaeger-collector
-      container_name: zipkin
+      container_name: jaeger
       restart: on-failure
       command: 
         - "--collector.zipkin.host-port=9411"

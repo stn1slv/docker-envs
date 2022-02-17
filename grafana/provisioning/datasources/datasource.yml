@@ -80,3 +80,9 @@ datasources:
   isDefault: false
   jsonData: {}
   readOnly: false
+- name: Jaeger
+  type: jaeger
+  uid: gdev-jaeger
+  access: proxy
+  url: http://jaeger-query:16686
+  editable: false
