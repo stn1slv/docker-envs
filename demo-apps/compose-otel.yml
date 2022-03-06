@@ -9,6 +9,7 @@ services:
             - OTEL_PROPAGATORS=b3multi
             - OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=http://otel-collector:4317
             - OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4317
+            - OTEL_METRICS_EXPORTER=prometheus
         ports:
             - 8080:8080
     carbooking:
@@ -19,6 +20,7 @@ services:
             - OTEL_PROPAGATORS=b3multi
             - OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=http://otel-collector:4317
             - OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4317
+            - OTEL_METRICS_EXPORTER=prometheus
         ports:
             - 8081:8080
     flightbooking:
@@ -29,6 +31,7 @@ services:
             - OTEL_PROPAGATORS=b3multi
             - OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=http://otel-collector:4317
             - OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4317
+            - OTEL_METRICS_EXPORTER=prometheus
         ports:
             - 8082:8080
     hotelbooking:
@@ -39,5 +42,6 @@ services:
             - OTEL_PROPAGATORS=b3multi
             - OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=http://otel-collector:4317
             - OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4317
+            - OTEL_METRICS_EXPORTER=prometheus
         ports:
             - 8083:8080
