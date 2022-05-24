@@ -15,6 +15,7 @@ jaeger         | jaeger/compose.yml                   | Jaeger
 keycloak       | keycloak/compose.yml                 | KeyCloak (single instance)
 keycloak       | keycloak/compose-cluster.yml         | KeyCloak (standalone cluster)
 postgresql     | postgresql/compose.yml               | PostgreSQL
+oracle-xe      | oracle-xe/compose.yml                | Oracle Database XE 
 redis          | redis/compose.yml                    | Redis
 mongo          | mongo/compose.yml                    | MongoDB
 openldap       | openldap/compose.yml                 | OpenLDAP
@@ -29,6 +30,7 @@ activemq       | activemq/compose.yml                 | Apache ActiveMQ Classic
 activemq-artemis | activemq-artemis/compose.yml       | Apache ActiveMQ Artemis
 swagger-ui     | swagger-ui/compose.yml               | Swagger UI
 apicurio-registry | apicurio-registry/compose.yml     | Apicurio Registry
+otel-collector | otel-collector/compose.yml           | OpenTelemetry Collector
 
 ## Running
 
