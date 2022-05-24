@@ -1,0 +1,8 @@
+version: '3.5'
+
+services:
+    schema-registry:
+        image: apicurio/apicurio-registry-mem:2.2.3.Final
+        container_name: schema-registry
+        ports:
+            - 8080:8080

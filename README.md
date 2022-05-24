@@ -28,6 +28,7 @@ wso2am         | wso2am/compose.yml                   | WSO2 API Manager
 activemq       | activemq/compose.yml                 | Apache ActiveMQ Classic
 activemq-artemis | activemq-artemis/compose.yml       | Apache ActiveMQ Artemis
 swagger-ui     | swagger-ui/compose.yml               | Swagger UI
+apicurio-registry | apicurio-registry/compose.yml     | Apicurio Registry
 
 ## Running
 
