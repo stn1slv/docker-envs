@@ -31,7 +31,8 @@ activemq-artemis | activemq-artemis/compose.yml       | Apache ActiveMQ Artemis
 swagger-ui     | swagger-ui/compose.yml               | Swagger UI
 apicurio-registry | apicurio-registry/compose.yml     | Apicurio Registry
 otel-collector | otel-collector/compose.yml           | OpenTelemetry Collector
-kong           | kong/compose.yml                     | Kong Gateway
+kong           | kong/compose.yml                     | Kong Gateway OSS
+kong           | kong/compose-free-mode.yml           | Kong Gateway Free mode
 ## Running
 
 All the following docker-compose commands should be run from this directory.
