@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+    schema-registry:
+        image: apicurio/apicurio-registry-mem:2.3.0.Final
+        container_name: schema-registry
+        environment:
+            - AUTH_ENABLED=true
+            - KEYCLOAK_URL=http://keycloak:8080/auth
+            - KEYCLOAK_REALM=registry
+            - KEYCLOAK_API_CLIENT_ID=registry-api
+            - KEYCLOAK_UI_CLIENT_ID=apicurio-registry
+            - REGISTRY_AUTH_CLIENT_SECRET=registry-api-secret
+            # - ROLE_BASED_AUTHZ_ENABLED=true
+            # - ROLE_BASED_AUTHZ_SOURCE=token
+            # - REGISTRY_AUTH_ROLES_ADMIN=sr-admin
+            # - REGISTRY_AUTH_ROLES_DEVELOPER=sr-developer
+            # - REGISTRY_AUTH_ROLES_READONLY=sr-readonly
+            # - REGISTRY_AUTH_ANONYMOUS_READ_ACCESS_ENABLED=true
+            # - REGISTRY_LOG_LEVEL=ALL
+        ports:
+            - 8180:8080
