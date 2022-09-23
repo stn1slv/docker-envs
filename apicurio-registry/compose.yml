@@ -5,4 +5,4 @@ services:
         image: apicurio/apicurio-registry-mem:2.3.0.Final
         container_name: schema-registry
         ports:
-            - 8080:8080
+            - 8180:8080
