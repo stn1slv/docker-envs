@@ -4,12 +4,12 @@ services:
 
     keycloak:
         # image: jboss/keycloak:12.0.4
-        image: quay.io/keycloak/keycloak:12.0.4
+        image: quay.io/keycloak/keycloak:19.0.2
         container_name: keycloak
         environment:
-          KEYCLOAK_USER: admin
-          KEYCLOAK_PASSWORD: admin
+          KEYCLOAK_ADMIN: admin
+          KEYCLOAK_ADMIN_PASSWORD: admin
           KEYCLOAK_LOGLEVEL: INFO
-        command: "-Dkeycloak.profile.feature.upload_scripts=enabled"
+        command: "-Dkeycloak.profile.feature.upload_scripts=enabled start-dev"
         ports:
           - 8080:8080
