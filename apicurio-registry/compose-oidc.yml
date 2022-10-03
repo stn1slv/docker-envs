@@ -5,18 +5,32 @@ services:
         image: apicurio/apicurio-registry-mem:2.3.0.Final
         container_name: schema-registry
         environment:
+            ###--- HTTP BASIC AUTH ---
+            # - AUTH_ENABLED=true
+            # - KEYCLOAK_URL=http://keycloak:8080/
+            # # - KEYCLOAK_URL=http://keycloak:8080/auth #for old keycloak servers
+            # - KEYCLOAK_REALM=registry
+            # - KEYCLOAK_API_CLIENT_ID=registry-api
+            # - KEYCLOAK_UI_CLIENT_ID=apicurio-registry
+            # - REGISTRY_AUTH_CLIENT_SECRET=registry-api-secret
+            # - REGISTRY_AUTH_ANONYMOUS_READ_ACCESS_ENABLED=true
+            # - ROLE_BASED_AUTHZ_ENABLED=true
+            # # - ROLE_BASED_AUTHZ_SOURCE=token
+            # - REGISTRY_LOG_LEVEL=DEBUG
+            
+            ###--- AOUTH2  ---
             - AUTH_ENABLED=true
-            - KEYCLOAK_URL=http://keycloak:8080/auth
+            - KEYCLOAK_URL=http://keycloak:8080/
+            # - KEYCLOAK_URL=http://keycloak:8080/auth #for old keycloak servers
             - KEYCLOAK_REALM=registry
             - KEYCLOAK_API_CLIENT_ID=registry-api
             - KEYCLOAK_UI_CLIENT_ID=apicurio-registry
-            - REGISTRY_AUTH_CLIENT_SECRET=registry-api-secret
-            # - ROLE_BASED_AUTHZ_ENABLED=true
-            # - ROLE_BASED_AUTHZ_SOURCE=token
-            # - REGISTRY_AUTH_ROLES_ADMIN=sr-admin
-            # - REGISTRY_AUTH_ROLES_DEVELOPER=sr-developer
-            # - REGISTRY_AUTH_ROLES_READONLY=sr-readonly
-            # - REGISTRY_AUTH_ANONYMOUS_READ_ACCESS_ENABLED=true
-            # - REGISTRY_LOG_LEVEL=ALL
+            - CLIENT_CREDENTIALS_BASIC_AUTH_ENABLED=false
+            - REGISTRY_AUTH_ANONYMOUS_READ_ACCESS_ENABLED=true
+            - ROLE_BASED_AUTHZ_ENABLED=true
+            - ROLE_BASED_AUTHZ_SOURCE=token
+            - OWNER_ONLY_AUTHZ_ENABLED=true
+            # - REGISTRY_UI_FEATURES_READONLY=true
+            # - QUARKUS_KEYCLOAK_POLICY_ENFORCER_ENABLE=true
         ports:
             - 8180:8080
