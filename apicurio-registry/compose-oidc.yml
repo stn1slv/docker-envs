@@ -30,7 +30,9 @@ services:
             - ROLE_BASED_AUTHZ_ENABLED=true
             - ROLE_BASED_AUTHZ_SOURCE=token
             - OWNER_ONLY_AUTHZ_ENABLED=true
+            - REGISTRY_UI_CONFIG_AUTH_TYPE=none
             # - REGISTRY_UI_FEATURES_READONLY=true
             # - QUARKUS_KEYCLOAK_POLICY_ENFORCER_ENABLE=true
+            ### Configuration params: https://www.apicur.io/registry/docs/apicurio-registry/2.3.x/getting-started/assembly-configuring-the-registry.html#all-registry-configs_registry
         ports:
             - 8180:8080
