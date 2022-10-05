@@ -8,4 +8,4 @@ services:
         KEYCLOAK_USER: admin
         KEYCLOAK_PASSWORD: admin
         KEYCLOAK_ENDPOINT: http://keycloak:8080/
-        KEYCLOAK_REALM: registry # realm name for creation users and clints
+        KEYCLOAK_REALM: registry                  # realm name for creation users and clints
