@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+    sr-init:
+      image: stn1slv/apicurio-registry-dev-data:1.0
+      container_name: sr-init
+      environment:
+        KEYCLOAK_USER: jcooper
+        KEYCLOAK_PASSWORD: jcooper
+        KEYCLOAK_ENDPOINT: http://keycloak:8080/
+        KEYCLOAK_REALM: registry                  # realm name for creation users and clints
+        KEYCLOAK_CLIENT_ID: registry-api
+        KEYCLOAK_CLIENT_SECRET: registry-api-secret
+        APICURIO_ENDPOINT: http://schema-registry:8080 #without last slash
