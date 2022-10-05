@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+    initializer:
+      image: stn1slv/keycloak-dev-data:1.0
+      container_name: kc-init
+      environment:
+        KEYCLOAK_USER: admin
+        KEYCLOAK_PASSWORD: admin
+        KEYCLOAK_ENDPOINT: http://keycloak:8080/
+        KEYCLOAK_REALM: registry # realm name for creation users and clints
