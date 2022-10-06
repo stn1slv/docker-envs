@@ -1,7 +1,8 @@
 version: '3.8'
 
 services:
-    kc-init:
+    kc-init:      
+      # Sources: https://github.com/stn1slv/keycloak-initializer
       image: stn1slv/keycloak-dev-data:1.0
       container_name: kc-init
       environment:

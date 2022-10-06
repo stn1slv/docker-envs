@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
     sr-init:
+      # Sources: https://github.com/stn1slv/apicurio-registry-initializer
       image: stn1slv/apicurio-registry-dev-data:1.0
       container_name: sr-init
       environment:
