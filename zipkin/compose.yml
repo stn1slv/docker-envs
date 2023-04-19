@@ -3,7 +3,7 @@ version: '3.8'
 services:
 
     zipkin:
-        image: openzipkin/zipkin:2.23
+        image: openzipkin/zipkin:2.24
         container_name: zipkin
         environment: 
             - ZIPKIN_UI_LOGS_URL=http://localhost:5601/app/kibana#/discover?_a=(index:'filebeat-*',query:(language:lucene,query:'{traceId}'))

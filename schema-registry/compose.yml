@@ -3,7 +3,7 @@ version: '3.8'
 services:
 
     schema-registry:
-        image: confluentinc/cp-schema-registry:6.1.1
+        image: confluentinc/cp-schema-registry:7.2.5
         container_name: schema-registry
         environment: 
             - SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS=kafka:9092

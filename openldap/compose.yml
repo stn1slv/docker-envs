@@ -3,7 +3,7 @@ version: '3.8'
 services:
 
     openldap:
-        image: bitnami/openldap:2
+        image: bitnami/openldap:2.6
         container_name: openldap
         environment:
             - LDAP_ADMIN_USERNAME=admin

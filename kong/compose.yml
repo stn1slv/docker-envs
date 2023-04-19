@@ -28,7 +28,7 @@ services:
   # Kong database migration
   #######################################
   kong-migration:
-    image: kong:2.8.1
+    image: kong:3.1.1
     command: kong migrations up
     networks:
       - kong-net
@@ -46,7 +46,7 @@ services:
   # Kong: The API Gateway
   #######################################
   kong:
-    image: kong:2.8.1
+    image: kong:3.1.1
     restart: on-failure
     networks:
       - kong-net

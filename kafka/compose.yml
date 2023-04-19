@@ -3,7 +3,7 @@ version: '3.8'
 services:
 
     kafka-all-in-one:
-        image: landoop/fast-data-dev
+        image: landoop/fast-data-dev:3.3
         container_name: kafka-all-in-one
         restart: always
         environment: 
