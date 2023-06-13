@@ -3,7 +3,7 @@ version: '3.8'
 services:
 
     prometheus:
-        image: prom/prometheus:v2.37.6
+        image: prom/prometheus:v2.37.7
         container_name: prometheus
         restart: unless-stopped
         volumes:
