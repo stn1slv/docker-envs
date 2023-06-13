@@ -3,7 +3,7 @@ version: '3.8'
 services:
 
     swagger-ui:
-        image: swaggerapi/swagger-ui:v4.18.2
+        image: swaggerapi/swagger-ui:v4.19.1
         container_name: swagger-ui
         ports:
             - 8080:8080
