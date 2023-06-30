@@ -31,7 +31,7 @@ services:
         - mongo
         - microcks-sso
         - postman
-        image: quay.io/microcks/microcks:1.6.1
+        image: quay.io/microcks/microcks:1.7.1
         container_name: microcks
         ports:
         - "8080:8080"
@@ -56,7 +56,7 @@ services:
         - microcks
         ports:
         - "8081:8081"
-        image: quay.io/microcks/microcks-async-minion:1.6.1
+        image: quay.io/microcks/microcks-async-minion:1.7.1
         container_name: microcks-async-minion
         restart: on-failure
         volumes:
