@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+    mongo:
+        image: mongo:4.4.6
+        user: mongodb
+        container_name: microcks-db
+        ports:
+            - 27017:27017
+
+    postman:
+        image: quay.io/microcks/microcks-postman-runtime:latest
+        container_name: microcks-postman-runtime
+
+    microcks:
+        depends_on:
+        - mongo
+        - postman
+        image: quay.io/microcks/microcks:1.8.0-fix-1
+        container_name: microcks
+        ports:
+        - "8080:8080"
+        - "9090:9090"
+        environment:
+        - SPRING_PROFILES_ACTIVE=prod
+        - SPRING_DATA_MONGODB_URI=mongodb://mongo:27017
+        - SPRING_DATA_MONGODB_DATABASE=microcks
+        - POSTMAN_RUNNER_URL=http://postman:3000
+        - TEST_CALLBACK_URL=http://microcks:8080
+        - SERVICES_UPDATE_INTERVAL=0 0 0/2 * * *
+        - KEYCLOAK_ENABLED=false
+        #- MAX_UPLOAD_FILE_SIZE=3MB
