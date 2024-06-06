@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+
+    kafka-all-in-one:
+        image: landoop/fast-data-dev:3.6
+        container_name: kafka-all-in-one
+        restart: always
+        environment: 
+            - ADV_HOST=127.0.0.1
+        ports:
+            - 2181:2181
+            - 3030:3030
+            - 8081:8081
+            - 8082:8082
+            - 8083:8083
+            - 9092:9092
