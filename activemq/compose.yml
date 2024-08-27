@@ -3,8 +3,13 @@ version: '3.8'
 services:
 
     activemq:
-        image: rmohr/activemq:5.15.9-alpine
+        image: apache/activemq-classic:6.1.2
         container_name: activemq
+        environment:
+            - ACTIVEMQ_CONNECTION_USER=admin
+            - ACTIVEMQ_CONNECTION_PASSWORD=admin
+            - ACTIVEMQ_WEB_USER=admin
+            - ACTIVEMQ_WEB_PASSWORD=admin
         ports:
             - 61616:61616
             - 8161:8161
