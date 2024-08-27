@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
     schema-registry:
-        image: apicurio/apicurio-registry-mem:2.4.3.Final
+        image: apicurio/apicurio-registry-mem:2.6.2.Final
         container_name: schema-registry
         ports:
             - 8180:8080
