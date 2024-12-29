@@ -1,4 +1,4 @@
-version: '3.8'
+## version: '3.8'
 
 # This files serves as filesystem anchor
 # Including it as first .yml file makes all build paths relative to this directory ('docker')
