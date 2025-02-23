@@ -37,8 +37,8 @@ receivers:
 exporters:
   prometheus:
     endpoint: "0.0.0.0:8889"
-    const_labels:
-      label1: value1
+    # const_labels:
+    #   label1: value1
 
   otlp/jaeger:
     endpoint: jaeger:4317
