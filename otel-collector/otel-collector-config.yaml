@@ -10,29 +10,29 @@ receivers:
           allowed_origins:
             - "*"
 
-  prometheus:
-    config:
-      scrape_configs:
-        - job_name: 'BookingTripService'
-          metrics_path: '/actuator/prometheus'
-          scrape_interval: 5s
-          static_configs:
-            - targets: ['tripbooking:8080']  
-        - job_name: 'BookingCarService'
-          metrics_path: '/actuator/prometheus'
-          scrape_interval: 5s
-          static_configs:
-            - targets: ['carbooking:8080']  
-        - job_name: 'BookingHotelService'
-          metrics_path: '/actuator/prometheus'
-          scrape_interval: 5s
-          static_configs:
-            - targets: ['hotelbooking:8080']  
-        - job_name: 'BookingFlightService'
-          metrics_path: '/actuator/prometheus' 
-          scrape_interval: 5s
-          static_configs:
-            - targets: ['flightbooking:8080']  
+  # prometheus:
+  #   config:
+  #     scrape_configs:
+  #       - job_name: 'BookingTripService'
+  #         metrics_path: '/actuator/prometheus'
+  #         scrape_interval: 5s
+  #         static_configs:
+  #           - targets: ['tripbooking:8080']  
+  #       - job_name: 'BookingCarService'
+  #         metrics_path: '/actuator/prometheus'
+  #         scrape_interval: 5s
+  #         static_configs:
+  #           - targets: ['carbooking:8080']  
+  #       - job_name: 'BookingHotelService'
+  #         metrics_path: '/actuator/prometheus'
+  #         scrape_interval: 5s
+  #         static_configs:
+  #           - targets: ['hotelbooking:8080']  
+  #       - job_name: 'BookingFlightService'
+  #         metrics_path: '/actuator/prometheus' 
+  #         scrape_interval: 5s
+  #         static_configs:
+  #           - targets: ['flightbooking:8080']  
 
 exporters:
   prometheus:
@@ -63,6 +63,7 @@ service:
       processors: [batch]
       exporters: [otlp/jaeger]
     metrics:
-      receivers: [otlp, prometheus]
+      # receivers: [otlp, prometheus]
+      receivers: [otlp]
       processors: [batch]
       exporters: [prometheus]
