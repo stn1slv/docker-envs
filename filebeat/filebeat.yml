@@ -1,3 +1,7 @@
+setup.template.name: "filebeat"
+setup.template.pattern: "filebeat"
+setup.ilm.enabled: false
+
 filebeat.inputs:
 - type: container
   paths: 
@@ -29,3 +33,7 @@ processors:
   
 output.elasticsearch:
   hosts: ["http://elasticsearch:9200"]
+  username: "elastic"
+  password: "elastic"
+  # index: "filebeat-%{+yyyy.MM.dd}"
+  index: "filebeat-%{+yyyy.MM.dd}"
