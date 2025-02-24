@@ -2,11 +2,12 @@
 
 services:
     filebeat:
-        image: docker.elastic.co/beats/filebeat-oss:7.10.2
+        image: docker.elastic.co/beats/filebeat:8.17.2
         container_name: filebeat
         user: root
+        restart: always
         volumes: 
             - /var/lib/docker:/var/lib/docker:ro
             - /var/run/docker.sock:/var/run/docker.sock
             - ./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml
-        command: filebeat -e -strict.perms=false
+        command: filebeat -e --strict.perms=false -E output.elasticsearch.hosts=["elasticsearch:9200"]
