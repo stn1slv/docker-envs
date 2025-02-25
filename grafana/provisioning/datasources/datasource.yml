@@ -9,44 +9,29 @@ deleteDatasources:
 # list of datasources to insert/update depending
 # whats available in the database
 datasources:
-  # <string, required> name of the datasource. Required
 - name: Prometheus
-  # <string, required> datasource type. Required
+  uid: gdev-prometheus
   type: prometheus
-  # <string, required> access mode. direct or proxy. Required
   access: proxy
-  # <int> org id. will default to orgId 1 if not specified
   orgId: 1
-  # <string> url
   url: http://prometheus:9090
-  # <string> database password, if used
   password: admin
-  # <string> database user, if used
   user: admin
-  # <string> database name, if used
   database:
-  # <bool> enable/disable basic auth
   basicAuth: true
-  # <string> basic auth username
   basicAuthUser: admin
-  # <string> basic auth password
   basicAuthPassword: admin
-  # <bool> enable/disable with credentials headers
   withCredentials:
-  # <bool> mark as default datasource. Max one per org
   isDefault: true
-  # <map> fields that will be converted to json and stored in json_data
   jsonData:
      graphiteVersion: "1.1"
      tlsAuth: false
      tlsAuthWithCACert: false
-  # <string> json object of data that will be encrypted.
   secureJsonData:
     tlsCACert: "..."
     tlsClientCert: "..."
     tlsClientKey: "..."
   version: 1
-  # <bool> allow users to edit datasources from the UI.
   editable: true
 - name: Elasticsearch
   uid: 'logs-elastic'
@@ -76,6 +61,7 @@ datasources:
   url: http://jaeger:16686
   editable: true
   jsonData:
+    tlsSkipVerify: true
     tracesToLogsV2:
       customQuery: true
       datasourceUid: 'logs-elastic'
@@ -85,8 +71,19 @@ datasources:
       filterBySpanID: false
       filterByTraceID: true
       query: 'msg.traceid:"$${__span.traceId}"'
+      
       # Filtering by SpanID
       #filterBySpanID: true
       #filterByTraceID: false
       #query: 'msg.spanId:"$${__span.spanId}"'
       tags: []
+    tracesToMetrics:
+      datasourceUid: 'gdev-prometheus'
+      queries:
+      - name: CPU utilization
+        query: 'system_cpu_usage{$$__tags}'
+      spanEndTimeShift: '2m'
+      spanStartTimeShift: '-2m'
+      tags:
+      - key: application
+        value: exported_job
