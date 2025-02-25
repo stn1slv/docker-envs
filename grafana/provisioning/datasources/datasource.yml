@@ -81,7 +81,12 @@ datasources:
       datasourceUid: 'logs-elastic'
       spanStartTimeShift: '-2h'
       spanEndTimeShift: '2h'
+      # Filtering by TraceID
       filterBySpanID: false
       filterByTraceID: true
       query: 'msg.traceid:"$${__span.traceId}"'
+      # Filtering by SpanID
+      #filterBySpanID: true
+      #filterByTraceID: false
+      #query: 'msg.spanId:"$${__span.spanId}"'
       tags: []
