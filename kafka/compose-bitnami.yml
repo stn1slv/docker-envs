@@ -15,4 +15,4 @@ services:
             KAFKA_CFG_CONTROLLER_LISTENER_NAMES: CONTROLLER
         ports:
             - 9092:9092
-            - 9094:9094
+            - 9094:9094 #use this port to connect from outside the container
