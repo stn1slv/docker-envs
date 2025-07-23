@@ -18,3 +18,8 @@ services:
         ports:
             - 9092:9092
             - 9094:9094 #use this port to connect from outside the container
+
+## JAAS Config
+# org.apache.kafka.common.security.plain.PlainLoginModule required username="user" password="password";
+# broker_security_type="SASL_PLAINTEXT"
+# sasl_mechanism="PLAIN"
