@@ -1,0 +1,52 @@
+services:
+  kafka:
+    image: apache/kafka:4.1.1
+    container_name: kafka
+    restart: always
+    ports:
+      - "9092:9092" # External SASL_SSL
+    volumes:
+      # Mount SSL certificates
+      - ./kafka/ssl:/etc/kafka/ssl:ro
+      # Mount JAAS config (Mapped to /etc/kafka/config to avoid "secrets" folder)
+      - ./kafka/sasl-plain/kafka_server_jaas.conf:/etc/kafka/config/kafka_server_jaas.conf:ro
+    environment:
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@localhost:9093
+      
+      # --- LISTENERS ---
+      # INTERNAL (9094): Plaintext (Fast, no overhead)
+      # EXTERNAL (9092): SASL_SSL (Encrypted & Authenticated)
+      KAFKA_LISTENERS: INTERNAL://0.0.0.0:9094,CONTROLLER://0.0.0.0:9093,EXTERNAL://0.0.0.0:9092
+      KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka:9094,EXTERNAL://localhost:9092
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
+
+      # --- PROTOCOL MAPPING ---
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,INTERNAL:PLAINTEXT,EXTERNAL:SASL_SSL
+      
+      # --- SASL SETTINGS ---
+      KAFKA_SASL_ENABLED_MECHANISMS: PLAIN
+      KAFKA_SASL_MECHANISM_INTER_BROKER_PROTOCOL: PLAIN
+      # Updated path to JAAS config
+      KAFKA_OPTS: "-Djava.security.auth.login.config=/etc/kafka/config/kafka_server_jaas.conf"
+
+      # --- SSL SETTINGS ---
+      # Pointing to the new /etc/kafka/ssl mount
+      KAFKA_SSL_KEYSTORE_LOCATION: /etc/kafka/ssl/kafka.keystore.jks
+      KAFKA_SSL_KEYSTORE_PASSWORD: abcdef
+      KAFKA_SSL_KEY_PASSWORD: abcdef
+      
+      KAFKA_SSL_TRUSTSTORE_LOCATION: /etc/kafka/ssl/kafka.truststore.jks
+      KAFKA_SSL_TRUSTSTORE_PASSWORD: abcdef
+      
+      # Client Auth: none = Clients don't need their own certs, they just need to trust the server
+      KAFKA_SSL_CLIENT_AUTH: none
+      
+      # Silence handshake errors from rogue clients
+      KAFKA_LOG4J_LOGGERS: "kafka.network.SocketServer=ERROR,org.apache.kafka.common.network.Selector=ERROR"
+
+    healthcheck:
+      test: ["CMD", "/opt/kafka/bin/kafka-topics.sh", "--bootstrap-server", "localhost:9094", "--list"]
+      interval: 10s
