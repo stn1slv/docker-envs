@@ -1,23 +1,26 @@
 # version: '3.8'
 
 services:
-
-    kafka:
-        image: apache/kafka:4.1.1
-        container_name: kafka
-        restart: always
-        environment:
-            KAFKA_NODE_ID: 1
-            KAFKA_PROCESS_ROLES: broker,controller
-            KAFKA_LISTENERS: PLAINTEXT://kafka:9092,CONTROLLER://kafka:9093
-            KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
-            KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
-            KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
-            KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
-            KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-            KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
-            KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
-            KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
-            KAFKA_NUM_PARTITIONS: 3
-        ports:
-            - 9092:9092
+  kafka:
+    image: apache/kafka:4.1.1
+    container_name: kafka
+    restart: always
+    environment:
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_LISTENERS: PLAINTEXT://kafka:9092,CONTROLLER://kafka:9093
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
+      KAFKA_CONTROLLER_QUORUM_VOTERS:
+        1@kafka:9093
+        # --- SINGLE NODE DEFAULTS ---
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_MIN_IN_SYNC_REPLICAS: 1
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+      # High memory allocation to reduce GC pauses
+      KAFKA_HEAP_OPTS: "-Xmx3G -Xms3G"
+    ports:
+      - 9092:9092
