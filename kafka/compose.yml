@@ -20,6 +20,6 @@ services:
       KAFKA_MIN_IN_SYNC_REPLICAS: 1
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
       # High memory allocation to reduce GC pauses
-      KAFKA_HEAP_OPTS: "-Xmx3G -Xms3G"
+      #KAFKA_HEAP_OPTS: "-Xmx3G -Xms3G"
     ports:
       - 9092:9092
